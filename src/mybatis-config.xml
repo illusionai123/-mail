@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "mybatis-3-config.dtd" >
+<configuration>
+	<properties resource="database.properties">	</properties>
+	<!-- 节点有一定顺序 -->
+	<settings>
+		<setting name="logImpl" value="LOG4J"/>
+		<setting name="autoMappingBehavior" value="FULL"/>
+	</settings>
+	<typeAliases>
+		<package name="cn.smbms.pojo"/>
+	</typeAliases>
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				 <property name="driver" value="${driver}"/>        
+				 <property name="url" value="${url}"/>        
+				 <property name="username" value="${user}"/>        
+				 <property name="password" value="${password}"/> 
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<mapper resource="cn/smbms/dao/user/UserMapper.xml"/>
+	</mappers>
+</configuration>
